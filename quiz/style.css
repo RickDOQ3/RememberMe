@@ -1,0 +1,291 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+    color: white;
+}
+
+/* Menu */
+.menu {
+    background-color: #111;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 2px solid #00aaff;
+    transition: all 0.5s ease;
+}
+
+.menu.hidden {
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+    height: 0;
+}
+
+.menu h1 {
+    color: #00aaff;
+    margin: 0 0 1rem;
+}
+
+.user-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-input input {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    width: 200px;
+}
+
+.user-input button {
+    padding: 0.5rem 1rem;
+    background-color: #00aaff;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#showMenuBtn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+#showMenuBtn:hover {
+    opacity: 0.8;
+}
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px);
+    padding: 2rem 1rem;
+}
+
+#quiz {
+    background-color: #111;
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 170, 255, 0.2);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+#quiz img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    max-height: 260px;
+    object-fit: cover;
+}
+
+.options button {
+    background: transparent;
+    color: #00aaff;
+    border: 2px solid #00aaff;
+    border-radius: 12px;
+    padding: 10px;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s;
+    width: 100%;
+}
+
+.options button:hover {
+    background: #00aaff;
+    color: #000;
+}
+
+#loading {
+    font-size: 1.3rem;
+    color: #aaa;
+}
+
+/* Feedback */
+.feedback {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    z-index: 999;
+    animation: popfade 1.5s ease-out forwards;
+}
+
+@keyframes popfade {
+    0% {
+        opacity: 0;
+        transform: scale(0.8) translate(-50%, -50%);
+    }
+    30% {
+        opacity: 1;
+        transform: scale(1.1) translate(-50%, -50%);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.9) translate(-50%, -50%);
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1rem;
+    color: #aaa;
+    font-size: 0.9rem;
+    border-top: 1px solid #333;
+}
+
+footer .heart {
+    color: red;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .user-input {
+        flex-direction: column;
+    }
+    .user-input input,
+    .user-input button {
+        width: 90%;
+    }
+}
+
+#musicToggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #00aaff;
+    color: black;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+}
+
+#musicToggle:hover {
+    background: #0077cc;
+    color: white;
+}
+
+
+
+#endScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.end-card {
+    background: #111;
+    border: 2px solid #00aaff;
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 0 20px rgba(0,170,255,0.4);
+    animation: popfade 0.6s ease;
+}
+
+.end-card h2 {
+    color: #00aaff;
+    margin-bottom: 1rem;
+}
+
+.end-card p {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+}
+
+.end-card button {
+    background-color: #00aaff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: black;
+    font-weight: bold;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.end-card button:hover {
+    background-color: #0077cc;
+    color: white;
+}
+
+.end-card footer {
+    margin-top: 1.5rem;
+    font-size: 0.85rem;
+    color: #aaa;
+}
+
+.end-card .heart {
+    color: red;
+}
+
+/* Animação de fundo da tela de fim de jogo */
+#endScreen {
+    background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #0a0a0a);
+    background-size: 400% 400%;
+    animation: gradientFlow 10s ease infinite;
+}
+
+/* Animação suave */
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Segundo botão no fim de jogo */
+.end-card button:nth-of-type(2) {
+    margin-left: 10px;
+    background-color: transparent;
+    border: 2px solid #00aaff;
+    color: #00aaff;
+}
+
+.end-card button:nth-of-type(2):hover {
+    background-color: #00aaff;
+    color: black;
+}
+
+

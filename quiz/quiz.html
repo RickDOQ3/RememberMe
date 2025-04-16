@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anime Quiz</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header class="menu" id="menu">
+        <h1>🎌 Anime Quiz</h1>
+        <div class="user-input">
+            <input type="text" id="username" placeholder="Usuário do MAL" />
+            <button onclick="startQuiz()">🎮 Começar</button>
+            <button onclick="handleRecapture()"
+                title="Apaga os dados salvos e busca novamente da API do MyAnimeList.">🔄 Re-capturar</button>
+        </div>
+    </header>
+
+    <button id="showMenuBtn" style="display: none;" onclick="toggleMenu()">☰ Menu</button>
+
+    <p id="remaining" style="text-align:center; margin-top: 10px;">Restantes: 0</p>
+
+    <div class="container">
+        <div id="loading" style="display: none;">🔄 Carregando animes...</div>
+
+        <div id="quiz" style="display: none;">
+            <img id="anime-image" src="" alt="Anime" />
+            <div class="options" id="options"></div>
+            <p id="score">Score: 0</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Code by Robert with <span class="heart">❤</span></p>
+    </footer>
+
+    <!-- YouTube Music Background -->
+    <div id="player" style="display: none;"></div>
+    <script>
+        let tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.body.appendChild(tag);
+
+        let player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '0',
+                width: '0',
+                videoId: 'tWzZhZU3sOI', // Lo-fi anime vibes
+                playerVars: {
+                    autoplay: 1,
+                    loop: 1,
+                    playlist: 'tWzZhZU3sOI',
+                    controls: 0,
+                    modestbranding: 1,
+                    showinfo: 0
+                }
+            });
+        }
+    </script>
+
+    <script src="script.js"></script>
+
+    <!-- Botão de música -->
+    <button id="musicToggle" onclick="toggleMusic()">🔊 Música</button>
+
+
+
+    <!-- Tela de fim de jogo -->
+    <div id="endScreen" style="display: none;">
+        <div class="end-card">
+            <h2>🏁 Fim de Jogo!</h2>
+            <p id="finalScore">Você fez X pontos!</p>
+            <p>Obrigado por jogar 🙌</p>
+            <button onclick="restartQuiz()">Jogar Novamente</button>
+            <button onclick="shareScore()">Compartilhar Resultado</button>
+            <footer>Code by Robert with <span class="heart">❤</span></footer>
+        </div>
+    </div>
+
+
+
+</body>
+
+</html>
